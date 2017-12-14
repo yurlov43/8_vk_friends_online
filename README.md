@@ -1,6 +1,6 @@
 # Watcher of Friends Online
 
-[TODO. There will be project description]
+The program checks which of the friends in the VK online.
 
 # How to Install
 
@@ -11,6 +11,33 @@ pip install -r requirements.txt # alternatively try pip3
 ```
 
 Remember, it is recommended to use [virtualenv/venv](https://devman.org/encyclopedia/pip/pip_virtualenv/) for better isolation.
+
+# Quickstart
+
+Example of script launch on Linux and Windows, Python 3.5:
+
+```bash
+$ python vk_friends_online.py
+```
+
+After launching the program will ask you to enter the login VK:
+
+```bash
+Введите логин:
+```
+
+Then the program asks you to enter the VK password:
+
+```bash
+Введите пароль:
+```
+
+The program displays a list of friends in the console, which are online from the computer and online from the phone:
+
+```bash
+Друзья online с компьютера:
+Друзья online с телефона:
+```
 
 # Project Goals
 
