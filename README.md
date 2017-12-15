@@ -32,11 +32,10 @@ Then the program asks you to enter the VK password:
 Введите пароль:
 ```
 
-The program displays a list of friends in the console, which are online from the computer and online from the phone:
+The program displays a list of friends online in the console:
 
 ```bash
-Друзья online с компьютера:
-Друзья online с телефона:
+Друзья online:
 ```
 
 # Project Goals
