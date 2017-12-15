@@ -21,16 +21,23 @@ def get_online_friends(login, password):
         user_password=password,
     )
     api = vk.API(session)
-    return api.friends.getOnline(online_mobile=1)
+    ids_friends_online = api.friends.getOnline(online_mobile=1)
+    friends_online = []
+    if ids_friends_online['online']:
+        friends_online += api.users.get(
+            user_ids=ids_friends_online['online'])
+    if ids_friends_online['online_mobile']:
+        friends_online += api.users.get(
+            user_ids=ids_friends_online['online_mobile'])
+    return friends_online
 
 
 def output_friends_to_console(friends_online):
-    print('Друзья online с компьютера:')
-    for friend in friends_online['online']:
-        print(friend)
-    print('Друзья online с телефона:')
-    for friend in friends_online['online_mobile']:
-        print(friend)
+    print('Друзья online:')
+    for number, friend in enumerate(friends_online, start=1):
+        print('{}{}. {} {}'.format(
+            '\t', number, friend['first_name'], friend['last_name']))
+
 
 if __name__ == '__main__':
     login = get_user_login()
