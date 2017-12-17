@@ -22,10 +22,13 @@ def get_online_friends(login, password):
     )
     api = vk.API(session)
     ids_friends_online = api.friends.getOnline(online_mobile=1)
-    ids_friends_online = ids_friends_online['online'] + \
+    ids_friends_online = (
+        ids_friends_online['online'] +
         ids_friends_online['online_mobile']
-    friends_online = []
-    if ids_friends_online:
+    )
+    if not ids_friends_online:
+        friends_online = []
+    else:
         friends_online = api.users.get(
             user_ids=ids_friends_online)
     return friends_online
